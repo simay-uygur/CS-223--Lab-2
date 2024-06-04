@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+module Full_substractor_structural(
+    input A, B, Cin,
+    output S, Cout
+);
+wire a, b, s, A1, s1;
+not not2(A1, A);
+xor xor1(s, B, A);
+xor xor2(S, Cin, s);
+and and1(a, B, A1);
+not not1(s1, s);
+and and2(b, Cin, s1);
+or or1(Cout, b, a);
+
+endmodule
