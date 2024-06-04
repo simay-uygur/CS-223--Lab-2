@@ -1,0 +1,18 @@
+`timescale 1ns / 1ps
+module full_substractor_str_testbench();
+    reg tb_a, tb_b, tb_bin;
+    wire tb_difference, tb_bout;
+    Full_substractor_structural uut (tb_a, tb_b, tb_bin, tb_difference, tb_bout);
+    initial begin
+        tb_a = 0; tb_b = 0; tb_bin = 0; #10;
+        tb_a = 0; tb_b = 1; tb_bin = 0; #10;
+        tb_a = 1; tb_b = 0; tb_bin = 0; #10;
+        tb_a = 1; tb_b = 1; tb_bin = 0; #10;
+        tb_a = 0; tb_b = 0; tb_bin = 1; #10;
+        tb_a = 0; tb_b = 1; tb_bin = 1; #10;
+        tb_a = 1; tb_b = 0; tb_bin = 1; #10;
+        tb_a = 1; tb_b = 1; tb_bin = 1; #10;
+        $finish;
+    end
+    initial $monitor($time, "tb_a=%b, tb_b=%b, tb_bin=%b, tb_difference=%b, tb_bout=%b", tb_a, tb_b, tb_bin, tb_difference, tb_bout);
+endmodule
