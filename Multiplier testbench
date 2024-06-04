@@ -1,0 +1,19 @@
+`timescale 1ns / 1ps
+module multipLier_testbench();
+
+reg [1:0] a ;
+wire [3:0] s;
+multipLier test(a , s);
+initial begin
+a[0] = 0 ; a[1] = 0 ;
+#100
+a[0] = 1 ; a[1] = 0 ;
+#100
+a[0] = 0 ; a[1] = 1 ;
+#100
+a[0] = 1 ; a[1] = 1 ;
+#100
+$monitor("At time %0t: a=%b s=%b", $time, a, s);
+end
+
+endmodule
