@@ -1,0 +1,9 @@
+`timescale 1ns / 1ps
+module Full_substractor_behaviorall(
+    input a, b, bin,
+    output s, cout
+);
+assign s = a ^ b ^ bin;
+assign cout = ~a & b | ~(a ^ b) & bin;
+
+endmodule
