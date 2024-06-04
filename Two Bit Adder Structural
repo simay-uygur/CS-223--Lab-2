@@ -1,0 +1,12 @@
+`timescale 1ns / 1ps
+module two_bit_adder(
+    input logic [1:0] a,
+    input logic [1:0] b,
+    output logic [1:0] s,
+    output logic cout
+);
+    wire c;
+    Full_adder_behavioral fullAdder1(a[0], b[0], 1'b0, s[0], c);
+    Full_adder_behavioral fullAdder2(a[1], b[1], c, s[1], cout);
+
+endmodule
