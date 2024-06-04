@@ -1,0 +1,11 @@
+`timescale 1ns / 1ps
+module multipLier(
+input logic [1:0]a,
+output logic [3:0]s
+    );
+    wire cout,c,d,e;
+    Full_adder_behavioral f1(a[0] , a[0] , a[0] , s[0] ,cout ) ;
+    Full_adder_behavioral f2(a[1] , cout , a[1] , c , d) ;
+    Full_adder_behavioral f3(a[1] , c , 1'b0 , s[1] , e) ;
+    Full_adder_behavioral f4(d , e , 1'b0 , s[2] , s[3]) ;
+endmodule
