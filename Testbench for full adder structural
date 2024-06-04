@@ -1,0 +1,17 @@
+`timescale 1ns / 1ps
+module full_adder_str_testbench();
+    reg a, b, c;
+    wire sum, cout;
+    Full_adder_structurall FullAdder(a, b, c, cout, sum);
+    initial begin
+        #20 a = 0; b = 0; c = 0;
+        #20 a = 0; b = 0; c = 1;
+        #20 a = 0; b = 1; c = 0;
+        #20 a = 0; b = 1; c = 1;
+        #20 a = 1; b = 0; c = 0;
+        #20 a = 1; b = 0; c = 1;
+        #20 a = 1; b = 1; c = 0;
+        #20 a = 1; b = 1; c = 1;
+        #20 $finish;
+    end
+endmodule
