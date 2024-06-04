@@ -1,0 +1,16 @@
+`timescale 1ns / 1ps
+module Full_adder_structurall(
+    input logic a, b, c,
+    output logic cout, sum
+);
+ 
+wire w1, w2, w3, w4;
+xor xor1 (w1, a, b);
+xor xor2 (sum, w1, c);
+and and1 (w2, a, b);
+and and2 (w3, a, c);
+and and3 (w4, b, c);
+or or1 (cout, w2, w3, w4);
+
+endmodule
+
