@@ -1,0 +1,18 @@
+`timescale 1ns / 1ps
+module full_adder_beh_testbench();
+    reg i0, i1, i2;
+    wire s, c;
+    Full_adder_behavioral uut (.x(i0), .y(i1), .z(i2), .s(s), .c(c));
+    initial begin
+        #100;
+        #10 i0 = 0; i1 = 0; i2 = 0;
+        #10 i0 = 0; i1 = 0; i2 = 1;
+        #10 i0 = 0; i1 = 1; i2 = 0;
+        #10 i0 = 0; i1 = 1; i2 = 1;
+        #10 i0 = 1; i1 = 0; i2 = 0;
+        #10 i0 = 1; i1 = 0; i2 = 1;
+        #10 i0 = 1; i1 = 1; i2 = 0;
+        #10 i0 = 1; i1 = 1; i2 = 1;
+    end
+    initial $monitor($time, "i2=%b, i1=%b, i0=%b, s=%b, c=%b", i2, i1, i0, s, c);
+endmodule
